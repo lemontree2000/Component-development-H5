@@ -18,8 +18,10 @@
       background: #fff;
       margin: 0 auto;
       margin-top: 60px;
+      position: relative;
     }
   </style>
+  <script src="../js/lib/jquery.js"></script>
   <script src="../js/H5ComponentBase.js"></script>
   <link rel="stylesheet" href="../css/H5ComponentBase.css">
 </head>
@@ -28,5 +30,21 @@
   <div id="iphone">
 
   </div>
+  <script>
+    var cfg = {
+      type: 'base',
+      text: 'textfff',
+      bg: './face_img_left.png',
+      width: 370,
+      height: 493,
+      css: {
+        left: 50,
+        top: 50
+      },
+      center: true
+    }
+    var h5 = new H5ComponentBase('myName', cfg)
+    $('#iphone').append(h5);
+  </script>
 </body>
 </html>
