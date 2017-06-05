@@ -11,7 +11,6 @@
       background: #000;
       padding: 0;
     }
-    
     #iphone {
       width: 340px;
       height: 540px;
@@ -20,6 +19,9 @@
       margin-top: 60px;
       position: relative;
     }
+    .h5_component_base {
+      transition: 0.3s all;
+    }
   </style>
   <script src="../js/lib/jquery.js"></script>
   <script src="../js/H5ComponentBase.js"></script>
@@ -27,24 +29,30 @@
 </head>
 <body>
   <!--用于开发测试 H5ComponentBase 对象 -->
-  <div id="iphone">
-
-  </div>
+  <div id="iphone"></div>
   <script>
     var cfg = {
       type: 'base',
       text: 'textfff',
-      bg: './face_img_left.png',
-      width: 370,
-      height: 493,
+      bg: './p1_people.png',
+      width: 516,
+      height: 306,
       css: {
-        left: 50,
-        top: 50
+        bottom: 0,
+        opacity: 0
       },
+      animateIn: {bottom: 80, opacity: 1},
+      animateOut: {bottom: 0, opacity: 0},
       center: true
     }
     var h5 = new H5ComponentBase('myName', cfg)
     $('#iphone').append(h5);
+    
+    var load = true;
+    $('body').click(function () {
+      load = !load;
+      $('.h5_component_base').trigger(load ? 'onLeave' :'onLoad');
+    })
   </script>
 </body>
 </html>
