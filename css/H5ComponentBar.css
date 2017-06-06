@@ -1,0 +1,10 @@
+/* 基本图文组件样式 */
+.h5_component_bar {
+
+}
+
+.h5_component_bar .rate {
+   background-color: red;
+   height: 20px;
+}
+
