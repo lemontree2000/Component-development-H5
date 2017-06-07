@@ -9,9 +9,12 @@ var H5ComponentBar = function (name, cfg) {
     var per = $('<div class="per"></div>');
 
     var width = item[1]*100 + '%';
-      
+    var bgStyle = '';
+    if (item[2]) {
+      bgStyle = 'style="background-color:' + item[2] +' "'
+    }  
     name.text(item[0]);
-    rate.html('<div class="bg"></div>');
+    rate.html('<div class="bg" '+bgStyle+'></div>');
     rate.css('width', width);
     per.text(width)
     line.append(name);
