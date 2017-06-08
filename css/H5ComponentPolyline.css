@@ -5,5 +5,5 @@
   top: 0; /* 用canvas做动画，会进行分层，会用到z-index */
   height: 100%;
   width: 100%;
-  background: #fffbfb;
+  /*background: #fffbfb;*/
 }

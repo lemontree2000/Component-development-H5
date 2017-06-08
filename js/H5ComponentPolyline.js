@@ -16,8 +16,9 @@ var H5ComponentPolyline = function (name, cfg) {
 
   var step = 10;
   ctx.beginPath()
-  ctx.lineWidth = .8;
+  ctx.lineWidth = 1;
   ctx.strokeStyle = "#aaa"
+  component.append(canvas);
 
   window.ctx = ctx;
   // 横线
@@ -38,6 +39,38 @@ var H5ComponentPolyline = function (name, cfg) {
   ctx.stroke();
 
 
+  var canvas = document.createElement('canvas');
+  var ctx = canvas.getContext('2d');
+  canvas.width = ctx.width = w;
+  canvas.height = ctx.height = h;
   component.append(canvas);
+
+  var step = 10;
+  ctx.beginPath()
+  ctx.lineWidth = 3;
+  ctx.strokeStyle = "#ff8878"
+
+  var x = 0;
+  var y = 0;
+
+  // 画点
+  var row_w = w / (cfg.data.length + 1)
+  for (i in cfg.data) {
+    var item = cfg.data[i];
+    x = row_w * i + row_w ;
+    y = h * (1 - item[1]);
+    ctx.moveTo(x, y);
+    ctx.arc(x, y, 5, 0, 2*Math.PI)
+    
+  }
+  ctx.stroke();
+
+
+
+
+
+  component.append(canvas);
+
+
   return component;
 }
