@@ -7,3 +7,20 @@
   width: 100%;
   /*background: #fffbfb;*/
 }
+
+
+.h5_component_polyline .text {
+  position: absolute;
+  font-size: 12px;
+  text-align: center;
+  bottom: -20px;
+  line-height: 20px;
+  opacity: 0;
+  transition: all 1s 1.5s;
+}
+.h5_component_polyline_load .text {
+  opacity: 1;
+}
+.h5_component_polyline_leave .text {
+  opacity: 0;
+}
