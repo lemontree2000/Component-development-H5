@@ -50,6 +50,22 @@ var H5ComponentRadar = function (name, cfg) {
     var y = r + Math.cos(rad) * r ;    
     ctx.moveTo(r, r);
     ctx.lineTo(x, y);
+
+    var text = $('<div class="text"> </div>');
+    text.text(cfg.data[i][0]);
+    text.css('transition','all .5s ' + i*.1 +'s');
+    component.append(text);
+    text.css('top', y/2);
+    if (x > w/2) {
+      text.css('left', x/2 + 5);
+    } else {
+      text.css('right', (w-x)/2 + 5);
+    }
+    if (y > h/2) {
+      text.css('top', y/2 + 5);
+    } else {
+      text.css('right', (h-y)/2 + 5);
+    }
   }
   ctx.strokeStyle = '#e0e0e0';
   ctx.stroke();
@@ -64,6 +80,13 @@ var H5ComponentRadar = function (name, cfg) {
 
   ctx.strokeStyle = '#f00';
   var draw = function(per) {
+    if (per >= 1) {
+      component.find('.text').css('opacity',1);
+    }
+    if (per <= 1) {
+      component.find('.text').css('opacity',0);
+    }
+
     ctx.clearRect(0,0,w,h);
     // 输出数据的折线
     for (var i = 0; i < step; i++) {
@@ -90,7 +113,7 @@ var H5ComponentRadar = function (name, cfg) {
       ctx.fill();
       ctx.closePath();
     }
-
+ 
   }
   component.on('onLoad', function() {
     var s = 0;
@@ -112,7 +135,7 @@ var H5ComponentRadar = function (name, cfg) {
       }, i*10);
     }
   });
-  draw(1)
+  // draw(1)
 
 
   return component;
