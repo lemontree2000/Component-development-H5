@@ -1,0 +1,13 @@
+/* 雷达图组件样式 */
+.h5_component_pie {
+  /*background: rgba(0,34,34,0.1);*/
+}
+
+.h5_component_pie canvas{
+  position: absolute;
+  left: 0;
+  /*top: 0;*/
+  width: 100%;
+  height: 100%; 
+}
+
