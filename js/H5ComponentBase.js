@@ -21,7 +21,9 @@ var H5ComponentBase = function (name, cfg) {
   // page下的组件进行动画事件 当加载时
   component.on('onLoad', function() {
     component.addClass(cls + '_load').removeClass(cls + '_leave');
-    cfg.animateIn && component.animate(cfg.animateIn);
+    setTimeout(function () {
+      cfg.animateIn && component.animate(cfg.animateIn);   
+    }, cfg.dely || 0);
     return false;
   });
   // page下的组件进行动画事件 当离开时

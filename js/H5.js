@@ -43,7 +43,7 @@ var H5 = function () {
   }
 
   // H5 对象初始化呈现
-  this.loader = function() {
+  this.loader = function(page) {
     this.el.fullpage({
       onLeave: function(index, nextIndex, direction) {
         $(this).find('.h5_component').trigger('onLeave');;
@@ -54,6 +54,9 @@ var H5 = function () {
     });
     this.pages[0].find('.h5_component').trigger('onLoad');
     this.el.show();
+    if (page) {
+      $.fn.fullpage.moveTo(page);
+    }
   }
   return this;
 }

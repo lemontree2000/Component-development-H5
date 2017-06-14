@@ -36,6 +36,36 @@
       margin: 0;
       padding: 0;
     }
+
+    .h5_page {
+      background: url('image/page_bg.png') no-repeat 0 0;
+    }
+    .h5_page_face {
+      background: url('image/face_bg.png') no-repeat 0 0;
+    }
+    .h5_component_name_slogan  {
+      animation: shake 2s infinite 2s;
+    }
+    @-webkit-keyframes shake {
+      0% {transform: rotate(0deg);}
+      15% {transform: rotate(3deg);}
+      36% {transform: rotate(-4deg);}
+      47% {transform: rotate(3deg);}
+      58% {transform: rotate(-2deg);}
+      69% {transform: rotate(1deg);}
+      80% {transform: rotate(-1deg);}
+      100% {transform: rotate(0deg);}
+    }
+    .h5_component_name_caption {
+      background: url(image/page_caption_bg.png) no-repeat 0 0;
+      width: 283px;
+      height: 160px;
+      text-align: center;
+      line-height: 140px;
+      font-size: 20px;
+      color: #fff; 
+      background-size: cover;
+    }
   </style>
   <link rel="stylesheet" href="css/h5.css">
   <script>
@@ -43,52 +73,143 @@
       var h5 = new H5();
         h5.addPage('face')
           .addComponent('logo', {
-            text: 'logo',
-            width: 400,
-            height: 100,
+            center: true,
+            width: '395',
+            height: '130',
+            bg: 'image/face_logo.png',
             css: {
-              backgroundColor: 'red', 
-              top: 200,
               opacity: 0
             },
-            center: true,
             animateIn: {
+              top: 100,
               opacity: 1
             },
             animateOut: {
+              top: 0,
               opacity: 0
-            }
+            },
           })
           .addComponent('slogan', {
-            text: 'slogan',
-            width: 400,
-            height: 200,
+            center: true,
+            width: 365,
+            height: 99,
+            bg: 'image/face_slogan.png',
             css: {
-              backgroundColor: 'blue', top: 300
+              opacity: 0,
+              top: 180
             },
-            center: true
+            animateIn: {
+              opacity: 1,
+              top: 200
+            },
+            animateOut: {
+              opacity: 0,
+              top: 180
+            },
+            dely: 500
           })
-          .addPage('desc')
-            .addComponent('caption', {
-              text: '核心理念',
-              width: 400,
-              height: 200,
-              css: {
-                backgroundColor: 'indigo', top: 300
-              },
-              center: true
-            })
-          .addPage('page-3')
-            .addComponent('caption', {
-              text: '课程方向分布',
-              width: 400,
-              height: 230,
-              css: {
-                backgroundColor: 'yellow', top: 250
-              },
-              center: true
-            })
-          .loader();
+          .addComponent('face_img_left', {
+            width: 370,
+            height: 493,
+            css: {
+              opacity: 0,
+              bottom: -50,
+              left: -50
+            },
+            animateIn: {
+              bottom: 0,
+              left: 0,
+              opacity: 1              
+            },
+            animateOut: {
+              opacity: 0,
+              bottom: -50,
+              left: -50
+            },
+            bg: 'image/face_img_left.png',
+            dely: 1000
+          })
+          .addComponent('face_img_right', {
+            width: 276,
+            height: 449,
+            css: {
+              opacity: 0,
+              bottom: -50,
+              right: -50
+            },
+            animateIn: {
+              bottom: 0,
+              right: 0,
+              opacity: 1              
+            },
+            animateOut: {
+              opacity: 0,
+              bottom: -50,
+              right: -50
+            },
+            bg: 'image/face_img_right.png',
+            dely: 1000
+          })
+        .addPage('')
+          .addComponent('caption', {
+            text: '核心理念'
+          })
+          .addComponent('text', {
+            text: 'IT教育网=只学有用的',
+            width: 500,
+            height: 30,
+            center: true,
+            css: {
+              opacity: 0, textAlign: 'center',color: 'red',fontSize: '26px'
+            },
+            animateIn: {opacity: 1, top: 120},
+            animateOut: {opacity: 0, top: 240}
+          })
+          .addComponent('des', {
+            center: true,
+            width: 481,
+            height: 295,
+            text: '2013年，IT教育网的诞生引领中国IT职业从教育进入新时代；高质量实战课程、全新教学模式、实时互动学习，以领先优势打造行业品牌；迄今为止，IT教育网已成为中国规模最大、互动性最高的IT技能学习平台。',            
+            bg: 'image/description_bg.gif',
+            css: {
+              opacity: 0,
+              padding: '15px 10px 10px 10px',
+              color: '#fff',
+              fontSize: '15px',
+              lineHeight: '18px',
+              textAlign: 'justify',
+              top: 260
+            },
+            animateIn: {
+              top: 200,
+              opacity: 1
+            },
+            animateOut: {
+              top: 260,
+              opacity: 1
+            },
+            dely: 500
+          })
+          .addComponent('people', {
+            width: 515,
+            height: 305,
+            center: true,
+            bg: 'image/260.png',
+            css: {
+              bottom: -0,
+              opacity: 0
+            },
+            animateIn: {
+              bottom: 40,
+              opacity: 1
+            },
+            animateOut: {
+              bottom: 0,
+              opacity: 0
+            },
+            dely: 1000
+          })
+        .loader(2);
     });
   </script>
 </head>
