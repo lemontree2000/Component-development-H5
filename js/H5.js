@@ -21,6 +21,9 @@ var H5 = function () {
     }
     this.el.append(page);
     this.pages.push(page);
+    if (typeof this.whenAddPage === 'function') {
+      this.whenAddPage()
+    }
     return this;
   }     
 

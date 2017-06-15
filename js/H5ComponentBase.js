@@ -18,6 +18,10 @@ var H5ComponentBase = function (name, cfg) {
       left: '50%'
     });
   }
+
+  if (typeof cfg.onclick === 'function') {
+    component.on('click',cfg.onclick)
+  }
   // page下的组件进行动画事件 当加载时
   component.on('onLoad', function() {
     component.addClass(cls + '_load').removeClass(cls + '_leave');
