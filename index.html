@@ -94,7 +94,8 @@
           dely: 400
         });
       }
-      h5.addPage('face')
+      h5
+      .addPage('face')
         .addComponent('logo', {
           center: true,
           width: '395',
@@ -232,6 +233,18 @@
           },
           dely: 1000
         })
+      .addPage('line')
+        .addComponent('caption', {text: '课程分布方向'})
+      .addPage('pie')
+        .addComponent('caption', {text: '移动开发课程资源'})
+      .addPage('')
+        .addComponent('caption', {text: '前端开发课程'})
+      .addPage('')
+        .addComponent('caption', {text: '后端开发课程'})
+      .addPage('')
+        .addComponent('caption', {text: '课程报名人数过万'})
+      .addPage('')
+        .addComponent('caption', {text: '课程难度分布'})
       .addPage('tail')
         .addComponent('logo', {
           center: true,

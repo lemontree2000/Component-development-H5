@@ -34,7 +34,6 @@ var H5 = function () {
     }, cfg);
     var coponent;
     var page = this.pages.slice(-1)[0];
-    console.log(page);
     switch(cfg.type) {
       case 'base':
         component = new H5ComponentBase(name, cfg);
