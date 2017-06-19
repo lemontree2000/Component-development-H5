@@ -234,17 +234,91 @@
           dely: 1000
         })
       .addPage('line')
-        .addComponent('caption', {text: '课程分布方向'})
+        .addComponent('caption', {text: '课程分布方向'}) //polyline
+        .addComponent('polyline',{
+          type: 'polyline',
+          width: 550,
+          height: 530,
+          data: [
+            ['js', .4, '#ff7676'],
+            ['HTML5', .2],
+            ['CSS3', .3],
+            ['Vue', .5],
+
+          ],
+          css: {
+            top: 100,
+            opacity: 1
+          },
+          animateIn: {
+            opacity: 1,
+            top: 200
+          },
+          animateOut: {
+            opacity: 0,
+            top: 100
+          },
+          center: true
+        })
+        .addComponent('msg', {
+          text: '前端开发课程占到40%',
+          css: {
+            opacity: 0, top: 140, textAlign: 'center',width: '100%', color: '#ff7676'
+          },
+          animateIn: {
+            opacity: 1,
+          },
+          animateOut:{
+            opacity: 0            
+          }
+        })
       .addPage('pie')
-        .addComponent('caption', {text: '移动开发课程资源'})
+        .addComponent('caption', {text: '移动开发课程资源'}) // pie
+        .addComponent('pie',{
+          type: 'pie',
+          width: 400,
+          height: 400,
+          data: [
+            ['js', .4, '#ff7676'],
+            ['go', .2],
+            ['HTML5', .05],
+            ['CSS3', .2],
+            ['Vue', .15],
+          ],
+          css: {
+            top: 200,
+            opacity: 0
+          },
+          animateIn: {
+            opacity: 1,
+            // top: 100
+          },
+          animateOut: {
+            opacity: 0,
+            // top: 200
+          },
+          center: true          
+        })
+        .addComponent('msg', {
+          text: '移动开发课程占到40%',
+          css: {
+            opacity: 0, top: 140, textAlign: 'center',width: '100%', color: '#ff7676'
+          },
+          animateIn: {
+            opacity: 1,
+          },
+          animateOut:{
+            opacity: 0            
+          }
+        })
       .addPage('')
-        .addComponent('caption', {text: '前端开发课程'})
+        .addComponent('caption', {text: '前端开发课程'}) // bar (bar_v)
       .addPage('')
-        .addComponent('caption', {text: '后端开发课程'})
+        .addComponent('caption', {text: '后端开发课程'}) // radar
       .addPage('')
-        .addComponent('caption', {text: '课程报名人数过万'})
+        .addComponent('caption', {text: '课程报名人数过万'}) // ring
       .addPage('')
-        .addComponent('caption', {text: '课程难度分布'})
+        .addComponent('caption', {text: '课程难度分布'}) //point
       .addPage('tail')
         .addComponent('logo', {
           center: true,
@@ -314,7 +388,7 @@
             $.fn.fullpage.moveTo(1);
           }
         })
-      .loader(5);
+      .loader(4);
     });
   </script>
 </head>

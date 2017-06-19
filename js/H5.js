@@ -38,8 +38,15 @@ var H5 = function () {
       case 'base':
         component = new H5ComponentBase(name, cfg);
         break;
+      case 'polyline':
+        component = new H5ComponentPolyline(name, cfg);
+        break;
+      case 'pie':
+        component = new H5ComponentPie(name, cfg);
+        break;
       default:
     }
+    console.log(cfg.type);
     page.append(component);
     return this;
   }
