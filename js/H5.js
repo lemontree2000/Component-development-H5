@@ -44,6 +44,9 @@ var H5 = function () {
       case 'pie':
         component = new H5ComponentPie(name, cfg);
         break;
+      case 'bar':
+        component = new H5ComponentBar(name, cfg);
+        break;
       default:
     }
     console.log(cfg.type);
