@@ -47,6 +47,9 @@ var H5 = function () {
       case 'bar':
         component = new H5ComponentBar(name, cfg);
         break;
+      case 'bar_v':
+        component = new h5ComponentBar_v(name, cfg);
+        break;
       default:
     }
     console.log(cfg.type);
