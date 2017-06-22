@@ -48,8 +48,10 @@ var H5 = function () {
         component = new H5ComponentBar(name, cfg);
         break;
       case 'bar_v':
-        component = new h5ComponentBar_v(name, cfg);
+        component = new H5ComponentBar_v(name, cfg);
         break;
+      case 'radar':
+        component = new H5ComponentRadar(name, cfg);
       default:
     }
     console.log(cfg.type);
