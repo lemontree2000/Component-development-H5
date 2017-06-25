@@ -1,10 +1,10 @@
-var h5ComponentRing=function (name,cfg) {
+var H5ComponentRing=function (name,cfg) {
 	if(cfg.data.length>1){
 		cfg.data=[cfg.data[0]];
 	}
 	//依旧利用饼图的css样式
 	cfg.type='pie';
-	var component=new h5ComponentPie(name,cfg);
+	var component=new H5ComponentPie(name,cfg);
 
 	component.addClass('h5_component_ring');
 

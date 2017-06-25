@@ -51,7 +51,15 @@ var H5 = function () {
         component = new H5ComponentBar_v(name, cfg);
         break;
       case 'radar':
+        console.log('radar');
         component = new H5ComponentRadar(name, cfg);
+        break;
+      case 'ring':
+        component = new H5ComponentRing(name, cfg);
+        break;
+      case 'point':
+        component = new H5ComponentPoint(name, cfg);
+        break;
       default:
     }
     console.log(cfg.type);

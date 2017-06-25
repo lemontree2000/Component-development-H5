@@ -10,26 +10,10 @@
   <script src="js/lib/jquery-ui.min.js"></script>
   <script src="js/lib/jquery.fullPage.js"></script>
   <!-- 加载 H5组件 相关资源-->
-  <script>
-    var res = [
-      'Base',
-      'Bar',
-      'Bar_v',
-      'Point',
-      'Polyline',
-      'Radar',
-      'Pie',
-      // 'Ring'
-    ]
-    var html = [];
-    for (s in res) {
-      html.push('<script src="js/H5Component'+ res[s] +'.js"> <\/script>');
-      html.push('<link rel="stylesheet" href="css/H5Component'+ res[s] +'.css"> ');
-    }
-    document.write(html.join(' '));
-  </script>
+ 
   <!-- H5对象： 进行内容管理-->
   <script src="js/H5.js"></script>
+  <script src="js/loading.js"></script>
   <!--页面逻辑的样式-->
   <style>
     body {
@@ -75,6 +59,33 @@
     }
   </style>
   <link rel="stylesheet" href="css/h5.css">
+  <link rel="stylesheet" href="css/loading.css">
+  
+</head>
+<body>
+  <div class="loading">
+    <div class="double-bounce1"></div>  
+    <div class="double-bounce2"></div>  
+    <div class="rate">0%</div>
+  </div>
+   <script>
+    var res = [
+      'Base',
+      'Bar',
+      'Bar_v',
+      'Point',
+      'Polyline',
+      'Radar',
+      'Pie',
+      'Ring'
+    ]
+    var html = [];
+    for (s in res) {
+      html.push('<script src="js/H5Component'+ res[s] +'.js"> <\/script>');
+      html.push('<link rel="stylesheet" href="css/H5Component'+ res[s] +'.css"> ');
+    }
+    document.write(html.join(' '));
+  </script>
   <script>
     $(function () {
       var h5 = new H5();
@@ -405,23 +416,123 @@
             ['Vue', .5],
           ],
           css: {
-            top: 300,
-            opacity: 1
+            top: 100,
+            opacity: 0
           },
           animateIn: {
             opacity: 1,
-            top: 260
+            top: 200
           },
           animateOut: {
             opacity: 0,
-            top: 360
+            top: 100
           },
           center: true          
         })
       .addPage('')
         .addComponent('caption', {text: '课程报名人数过万'}) // ring
+        .addComponent('ring-all', {
+          type: 'ring', center: true,
+          width: 300, height: 300,
+          data: [
+            ['总课程', .7, '#ff7676']
+          ],
+          css: {
+            top: 120,
+            opacity: 0
+          },
+          animateIn: {
+            opacity: 1,
+          },
+          animateOut: {
+            opacity: 0
+          }
+        })
+        .addComponent('msg', {
+          text: '不同课程报名人数数据超过一万占比',
+          css: {
+            opacity: 0, top: 300, textAlign: 'center',width: '100%', color: '#ff7676'
+          },
+          animateIn: {
+            opacity: 1,
+          },
+          animateOut:{
+            opacity: 0            
+          },
+          dely: 1800
+        })
+        .addComponent('ring1', {
+          type: 'ring', center: true,
+          width: 140, height: 140,
+          data: [
+            ['总课程', .7, 'darkorange']
+          ],
+          css: {
+            bottom: 120,
+            opacity: 0
+          },
+          animateIn: {
+            opacity: 1,
+          },
+          animateOut: {
+            opacity: 0
+          }
+        })
+        .addComponent('ring2', {
+          type: 'ring', 
+          width: 140, height: 140,
+          data: [
+            ['前端', .3, 'darkorange']
+          ],
+          css: {
+            bottom: 120,
+            left: 30,
+            opacity: 0
+          },
+          animateIn: {
+            opacity: 1,
+          },
+          animateOut: {
+            opacity: 0
+          }
+        })
+        .addComponent('ring3', {
+          type: 'ring', 
+          width: 140, height: 140,
+          data: [
+            ['前端', .3, 'darkorange']
+          ],
+          css: {
+            bottom: 120,
+            right: 30,
+            opacity: 0
+          },
+          animateIn: {
+            opacity: 1,
+          },
+          animateOut: {
+            opacity: 0
+          }
+        })
       .addPage('')
         .addComponent('caption', {text: '课程难度分布'}) //point
+        .addComponent('point', {
+          type: 'point',
+          width: 300,
+          height: 300,
+          data: [
+            ['中级', .4, 'green'],
+            ['初级', .2, 'yellow',20, '-60%'],
+            ['高级', .2, 'red', -10, '120%']
+          ],
+          css: {
+            bottom: '40%',
+            opacity: 0
+          },
+          animateIn: {bottom: '40%', opacity: 1},
+          animateOut: {bottom: 0, opacity: 0},
+          center: true
+        })
       .addPage('tail')
         .addComponent('logo', {
           center: true,
@@ -491,11 +602,8 @@
             $.fn.fullpage.moveTo(1);
           }
         })
-      .loader(1);
+      // .loader(9);
     });
   </script>
-</head>
-<body>
-  
 </body>
 </html>
