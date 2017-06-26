@@ -66,7 +66,7 @@
   <div class="loading">
     <div class="double-bounce1"></div>  
     <div class="double-bounce2"></div>  
-    <div class="rate">0%</div>
+    <div id="rate">0%</div>
   </div>
    <script>
     var res = [
@@ -602,7 +602,7 @@
             $.fn.fullpage.moveTo(1);
           }
         })
-      // .loader(9);
+      .loader(['image/tail_back.png', 'image/tail_share.png']);
     });
   </script>
 </body>

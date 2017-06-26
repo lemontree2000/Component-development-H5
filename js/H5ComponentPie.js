@@ -121,6 +121,7 @@ var H5ComponentPie = function (name, cfg) {
     ctx.stroke();
 
     if(per >= 1) {
+      H5ComponentPie.resort(component.find('.text'));
       component.find('.text').css('opacity',1);
     }
     if(per <= 1) {
@@ -153,4 +154,25 @@ var H5ComponentPie = function (name, cfg) {
 
 
   return component;
+}
+
+// 重拍项目文本元素
+H5ComponentPie.resort = function(list) {
+  console.log(list);
+  // 1. 检查相交
+  var compare = function(domA, domB) {
+    var offsetA = $(domA).offset();
+    // domA 的投影
+    var shadowA_x = [offsetA.left, $(domA).width() + offset.left];
+    var shadowA_y = [offset.top, $(domA).height() + offsetA.top] 
+
+    // domB 的投影
+    var shadowB_x = [offsetA.left, $(domB).width() + offset.left];
+    var shadowB_y = [offset.top, $(domB).height() + offsetA.top] 
+  }
+  // 2. 错开重排
+  var reset = function (domA, domB) {
+    
+  }
+
 }

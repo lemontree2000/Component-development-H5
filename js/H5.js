@@ -83,5 +83,6 @@ var H5 = function () {
       $.fn.fullpage.moveTo(page);
     }
   }
+  this.loader = typeof H5_loading == 'function' ? H5_loading : this.loader;
   return this;
 }
